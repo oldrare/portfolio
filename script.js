@@ -1,9 +1,6 @@
-// 다크 모드 toggle
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
 }
-
-// scroll reveal
 window.addEventListener('scroll', function() {
     var reveals = document.querySelectorAll('.reveal');
     for (var i = 0; i < reveals.length; i++) {
