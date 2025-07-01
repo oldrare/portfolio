@@ -8,44 +8,40 @@
 </head>
 <body>
     <button class="toggle-dark" onclick="toggleDarkMode()">
-    🌙 <span>다크 모드</span>
+        🌙 <span>다크 모드</span>
     </button>
+
     <div class="container">
+        <h1 class="fade-in-up">안녕하세요, 홍길동입니다 👋</h1>
+        <p class="fade-in-up" style="animation-delay: 0.3s;">디지털 마케팅과 프론트엔드 개발을 함께합니다.</p>
 
-        <h1>안녕하세요, 홍길동입니다 👋</h1>
-        <p style="text-align: center;">디지털 마케팅과 프론트엔드 개발을 함께합니다.</p>
-
-        <h2>💻 Web Skills</h2>
+        <h2 class="reveal">💻 Web Skills</h2>
         <div class="skills">
-            <div class="card">HTML5 / CSS3 / JavaScript</div>
-            <div class="card">React / Chart.js</div>
-            <div class="card">SEO & 반응형 퍼블리싱</div>
+            <div class="card reveal">HTML5 / CSS3 / JavaScript</div>
+            <div class="card reveal">React / Chart.js</div>
+            <div class="card reveal">SEO & 반응형 퍼블리싱</div>
         </div>
 
-        <h2>🎨 Design</h2>
+        <h2 class="reveal">🎨 Design</h2>
         <div class="skills">
-            <div class="card">Figma</div>
-            <div class="card">Photoshop</div>
+            <div class="card reveal">Figma</div>
+            <div class="card reveal">Photoshop</div>
         </div>
 
-        <h2>📈 Marketing</h2>
+        <h2 class="reveal">📈 Marketing</h2>
         <div class="skills">
-            <div class="card">네이버 쇼핑검색 / 블로그 키워드</div>
-            <div class="card">Meta (페이스북, 인스타그램)</div>
-            <div class="card">ROAS 분석 & 최적화</div>
+            <div class="card reveal">네이버 쇼핑검색 / 블로그 키워드</div>
+            <div class="card reveal">Meta (페이스북, 인스타그램)</div>
+            <div class="card reveal">ROAS 분석 & 최적화</div>
         </div>
 
-        <h2>🔗 Contact</h2>
+        <h2 class="reveal">🔗 Contact</h2>
         <div class="contact">
-            <div class="card">이메일: your.email@example.com</div>
-            <div class="card"><a href="https://github.com/username" target="_blank">GitHub</a></div>
+            <div class="card reveal">이메일: your.email@example.com</div>
+            <div class="card reveal"><a href="https://github.com/username" target="_blank">GitHub</a></div>
         </div>
     </div>
 
-    <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
