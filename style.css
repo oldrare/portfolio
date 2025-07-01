@@ -67,17 +67,18 @@ body.dark-mode button.toggle-dark:hover {
 }
 .toggle-dark {
     position: fixed;
-    top: 20px;
+    bottom: 20px;
     right: 20px;
     background: #333;
     color: #f7f7f7;
     border: none;
-    padding: 10px 16px;
-    border-radius: 5px;
+    padding: 12px 20px;
+    border-radius: 50px;
     cursor: pointer;
     z-index: 1000;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: background 0.3s, color 0.3s;
+    font-size: 16px;
+    transition: all 0.3s ease;
 }
 .toggle-dark:hover {
     background: #555;
@@ -90,3 +91,13 @@ body.dark-mode .toggle-dark:hover {
     background: #ddd;
 }
 
+/* 모바일: 글자 숨기고 아이콘만 */
+@media (max-width: 600px) {
+    .toggle-dark {
+        padding: 12px;
+        font-size: 20px;
+    }
+    .toggle-dark span {
+        display: none;
+    }
+}
