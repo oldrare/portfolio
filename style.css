@@ -43,6 +43,13 @@ h1, h2 {
     transform: translateY(-5px);
     box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
+
+/* ⬇️ 다크모드 카드 추가 */
+body.dark-mode .card {
+    background: #222;
+    color: #eee;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
 a { color: #0066cc; text-decoration: none; }
 a:hover { text-decoration: underline; }
 .toggle-dark {
@@ -148,4 +155,9 @@ body.dark-mode .statement p {
 }
 body.dark-mode .statement .highlight {
     color: #ff7f7f;
+}
+body.dark-mode .card {
+    background: #222;
+    color: #eee;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
