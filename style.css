@@ -28,7 +28,7 @@ body {
     animation-delay:0.5s;
 }
 .page h1, .page p {
-    color: #fff;
+    color: #000;
 }
 .hero {
     height: 100vh;
