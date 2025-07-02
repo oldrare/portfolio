@@ -314,3 +314,9 @@ body.dark-mode .strategy-summary p {
 body.dark-mode .strategy-summary .highlight {
     color: #ff7f7f;
 }
+.church-market .graph-chart img.church-img {
+    width: 350px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+}
