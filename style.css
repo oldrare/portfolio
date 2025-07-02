@@ -1,13 +1,11 @@
 body {
+    margin:0; padding:0;
     font-family: 'Noto Sans KR', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f7f7f7;
-    color: #333;
-    line-height: 1.8;
+    background:#f7f7f7;
+    color:#333;
     transition: background 0.5s, color 0.5s;
 }
-.page {
+.hero, .page {
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -17,35 +15,6 @@ body {
     background-size:cover;
     background-position:center;
 }
-.page h1 {
-    font-size:3em;
-    margin:0.3em 0;
-    animation: fadeInUp 1s forwards;
-}
-.page p {
-    font-size:1.5em;
-    animation: fadeInUp 1s forwards;
-    animation-delay:0.5s;
-}
-.page h1, .page p {
-    color: #000;
-}
-.hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: url('https://via.placeholder.com/1200x800') center/cover no-repeat;
-    color: #fff;
-    text-align: center;
-}
-.hero h1, .hero p {    
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s forwards;
-}
-.hero p { animation-delay: 0.3s; }
 .container {
     max-width: 1000px;
     margin: 0 auto;
@@ -76,21 +45,6 @@ h1, h2 {
 }
 a { color: #0066cc; text-decoration: none; }
 a:hover { text-decoration: underline; }
-body.dark-mode {
-    background: #111;
-    color: #f5f5f5;
-}
-body.dark-mode .card {
-    background: #222;
-    color: #f5f5f5;
-}
-body.dark-mode .toggle-dark {
-    background: #f5f5f5;
-    color: #111;
-}
-body.dark-mode .toggle-dark:hover {
-    background: #ddd;
-}
 .toggle-dark {
     position: fixed;
     bottom: 20px;
@@ -107,22 +61,22 @@ body.dark-mode .toggle-dark:hover {
     transition: all 0.3s ease;
 }
 .toggle-dark:hover { background: #555; }
-@media (max-width: 600px) {
-    .toggle-dark {
-        padding: 12px;
-        font-size: 20px;
-    }
-    .toggle-dark span { display: none; }
-}
-@keyframes fadeInUp {
-    to { opacity: 1; transform: translateY(0); }
+@media (max-width:600px){
+    .toggle-dark { padding:12px; font-size:20px;}
+    .toggle-dark span { display:none; }
 }
 .reveal {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
     transition: all 0.8s ease;
 }
 .reveal.show {
     opacity: 1;
     transform: translateY(0);
+}
+.page h1, .page p, .hero h1, .hero p {
+    color: #fff;
+}
+body.dark-mode .page h1, body.dark-mode .page p, body.dark-mode .hero h1, body.dark-mode .hero p {
+    color: #eee;
 }
