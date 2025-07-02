@@ -314,6 +314,36 @@ body.dark-mode .strategy-summary p {
 body.dark-mode .strategy-summary .highlight {
     color: #ff7f7f;
 }
+.church-market {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fafafa;
+    padding: 60px 20px;
+    text-align: center;
+}
+body.dark-mode .church-market {
+    background: #111;
+}
+.church-market .graph-text {
+    max-width: 800px;
+    margin-bottom: 30px;
+}
+.church-market .graph-text h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #222;
+}
+.church-market .graph-text p {
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.8;
+}
+body.dark-mode .church-market .graph-text h2,
+body.dark-mode .church-market .graph-text p {
+    color: #eee;
+}
 .church-market .graph-chart img.church-img {
     width: 350px;
     height: 500px;
