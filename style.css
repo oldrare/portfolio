@@ -5,6 +5,7 @@ body {
     color:#333;
     transition: background 0.5s, color 0.5s;
 }
+
 .hero, .page {
     display:flex;
     flex-direction: column;
@@ -14,6 +15,7 @@ body {
     text-align: center;
     background-size:cover;
     background-position:center;
+    position: relative;
 }
 .container {
     max-width: 1000px;
@@ -43,15 +45,15 @@ h1, h2 {
     transform: translateY(-5px);
     box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
-
-/* ⬇️ 다크모드 카드 추가 */
 body.dark-mode .card {
     background: #222;
     color: #eee;
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
+
 a { color: #0066cc; text-decoration: none; }
 a:hover { text-decoration: underline; }
+
 .toggle-dark {
     position: fixed;
     bottom: 20px;
@@ -68,10 +70,12 @@ a:hover { text-decoration: underline; }
     transition: all 0.3s ease;
 }
 .toggle-dark:hover { background: #555; }
+
 @media (max-width:600px){
     .toggle-dark { padding:12px; font-size:20px;}
     .toggle-dark span { display:none; }
 }
+
 .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -81,31 +85,18 @@ a:hover { text-decoration: underline; }
     opacity: 1;
     transform: translateY(0);
 }
-.page h1, .page p, .hero h1, .hero p {
-    color: #fff;
-}
-body.dark-mode .page h1, body.dark-mode .page p, body.dark-mode .hero h1, body.dark-mode .hero p {
-    color: #eee;
-}
-.hero h1, .hero p {
-    color: #333; /* 어두운 글자 */
-}
-body.dark-mode .hero h1, body.dark-mode .hero p {
-    color: #eee;
-}
 
+.hero h1, .hero p,
 .page h1, .page p {
-    color: #fff; /* section.page 는 흰 글자 유지 */
+    color: #333;
+    position: relative;
+    z-index: 1;
 }
+body.dark-mode .hero h1, body.dark-mode .hero p,
 body.dark-mode .page h1, body.dark-mode .page p {
     color: #eee;
 }
 
-.hero h1, .hero p, .page h1, .page p {
-    color: #fff;
-    position: relative;
-    z-index: 1;
-}
 .graph-section canvas {
     position: absolute;
     top:0; left:0;
@@ -114,6 +105,7 @@ body.dark-mode .page h1, body.dark-mode .page p {
     z-index:0;
     opacity:0.2;
 }
+
 .statement {
     min-height: 100vh;
     display: flex;
@@ -155,9 +147,4 @@ body.dark-mode .statement p {
 }
 body.dark-mode .statement .highlight {
     color: #ff7f7f;
-}
-body.dark-mode .card {
-    background: #222;
-    color: #eee;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
