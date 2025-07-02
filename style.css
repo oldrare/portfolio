@@ -107,3 +107,45 @@ body.dark-mode .page h1, body.dark-mode .page p {
     z-index:0;
     opacity:0.2;
 }
+.statement {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #f8f8f8;
+    padding: 40px 20px;
+}
+.statement h1 {
+    font-size: 3.2em;
+    line-height: 1.4;
+    color: #222;
+    margin-bottom: 1em;
+}
+.statement p {
+    font-size: 1.6em;
+    line-height: 1.5;
+    color: #555;
+    margin: 0.5em 0;
+}
+.statement .highlight {
+    color: #d64545;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+.statement p.highlight-text {
+    font-weight: 700;
+    color: #000;
+    font-size: 1.8em;
+}
+body.dark-mode .statement {
+    background: #111;
+}
+body.dark-mode .statement h1,
+body.dark-mode .statement p {
+    color: #eee;
+}
+body.dark-mode .statement .highlight {
+    color: #ff7f7f;
+}
