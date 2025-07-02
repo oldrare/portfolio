@@ -7,6 +7,26 @@ body {
     line-height: 1.8;
     transition: background 0.5s, color 0.5s;
 }
+.page {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background-size:cover;
+    background-position:center;
+}
+.page h1 {
+    font-size:3em;
+    margin:0.3em 0;
+    animation: fadeInUp 1s forwards;
+}
+.page p {
+    font-size:1.5em;
+    animation: fadeInUp 1s forwards;
+    animation-delay:0.5s;
+}
 .hero {
     height: 100vh;
     display: flex;
