@@ -148,3 +148,15 @@ body.dark-mode .statement p {
 body.dark-mode .statement .highlight {
     color: #ff7f7f;
 }
+.hero {
+    background: #eee;
+}
+.hero h1, .hero p {
+    color: #333;
+}
+body.dark-mode .hero {
+    background: #111;
+}
+body.dark-mode .hero h1, body.dark-mode .hero p {
+    color: #eee;
+}
