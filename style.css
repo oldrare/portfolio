@@ -160,3 +160,56 @@ body.dark-mode .hero {
 body.dark-mode .hero h1, body.dark-mode .hero p {
     color: #eee;
 }
+
+
+.philosophy {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #f5f5f5;
+    padding: 60px 20px;
+}
+.philosophy h1 {
+    font-size: 2.5em;
+    line-height: 1.5;
+    color: #222;
+}
+.philosophy p {
+    font-size: 1.4em;
+    margin-top: 1em;
+    color: #555;
+}
+body.dark-mode .philosophy {
+    background: #111;
+}
+body.dark-mode .philosophy h1,
+body.dark-mode .philosophy p {
+    color: #eee;
+}
+
+.gallery {
+    padding: 40px 20px;
+    background: #fafafa;
+}
+body.dark-mode .gallery {
+    background: #222;
+}
+.gallery-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+}
+.gallery-container img {
+    flex: 0 0 auto;
+    width: 400px;
+    height: 250px;
+    border-radius: 12px;
+    object-fit: cover;
+    scroll-snap-align: start;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
