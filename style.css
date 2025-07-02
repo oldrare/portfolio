@@ -93,3 +93,17 @@ body.dark-mode .hero h1, body.dark-mode .hero p {
 body.dark-mode .page h1, body.dark-mode .page p {
     color: #eee;
 }
+
+.hero h1, .hero p, .page h1, .page p {
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+.graph-section canvas {
+    position: absolute;
+    top:0; left:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+    opacity:0.2;
+}
