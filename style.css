@@ -80,3 +80,16 @@ a:hover { text-decoration: underline; }
 body.dark-mode .page h1, body.dark-mode .page p, body.dark-mode .hero h1, body.dark-mode .hero p {
     color: #eee;
 }
+.hero h1, .hero p {
+    color: #333; /* 어두운 글자 */
+}
+body.dark-mode .hero h1, body.dark-mode .hero p {
+    color: #eee;
+}
+
+.page h1, .page p {
+    color: #fff; /* section.page 는 흰 글자 유지 */
+}
+body.dark-mode .page h1, body.dark-mode .page p {
+    color: #eee;
+}
