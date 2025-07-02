@@ -31,7 +31,6 @@ window.onload = function() {
     });
 };
 
-
 window.onload = function() {
     const ctx = document.getElementById('salesCompareChart').getContext('2d');
     new Chart(ctx, {
