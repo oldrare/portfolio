@@ -380,7 +380,19 @@ body.dark-mode .strategy-summary p {
 body.dark-mode .strategy-summary .highlight {
     color: #ff7f7f;
 }
+.strategy-summary-wrapper {
+    background: #f8f8f8;
+}
+body.dark-mode .strategy-summary-wrapper {
+    background: #111;
+}
 
+.strategy-summary {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    text-align: left;
+}
 
 
 .church-market {
