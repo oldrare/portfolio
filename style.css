@@ -57,18 +57,21 @@ body {
     transform: translateY(0);
 }
 .container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 40px 20px;
+    width: 100%;
     background: #f7f7f7;
+    padding: 40px 20px;
 }
 body.dark-mode .container {
     background: #111;
 }
-.container h2 {
+.container-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.container-inner h2 {
     color: #222;
 }
-body.dark-mode .container h2 {
+body.dark-mode .container-inner h2 {
     color: #eee;
 }
 body.dark-mode .card {
