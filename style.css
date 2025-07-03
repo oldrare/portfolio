@@ -34,7 +34,14 @@ body {
     white-space: nowrap;
     pointer-events: none;
     user-select: none;
+
     z-index: 0;
+    opacity: 0;
+    transition: all 0.8s ease;
+}
+.hero-watermark.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateY(0);
 }
 body.dark-mode .hero-watermark {
     color: rgba(255,255,255,0.05);
