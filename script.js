@@ -64,3 +64,13 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+window.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function(){
+        document.querySelectorAll('.hero .reveal').forEach(function(el) {
+            el.classList.add('show');
+        });
+        const heroBg = document.querySelector('.hero-bg-img');
+        if(heroBg) heroBg.classList.add('show');
+    }, 200);
+});
