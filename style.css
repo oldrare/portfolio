@@ -60,6 +60,23 @@ body {
     max-width: 1000px;
     margin: 0 auto;
     padding: 40px 20px;
+    background: #f7f7f7;
+}
+body.dark-mode .container {
+    background: #111;
+}
+.container h2 {
+    color: #222;
+}
+body.dark-mode .container h2 {
+    color: #eee;
+}
+body.dark-mode .card {
+    background: #fff;
+    color: #111;
+}
+body.dark-mode .card a {
+    color: #0066cc;
 }
 h1, h2 {
     text-align: center;
@@ -227,9 +244,7 @@ body.dark-mode .hero {
 body.dark-mode .hero h1, body.dark-mode .hero p {
     color: #eee;
 }
-body.dark-mode .container {
-    background: #111;
-}
+
 
 .philosophy {
     min-height: 60vh;
