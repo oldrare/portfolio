@@ -354,6 +354,7 @@ body.dark-mode .graph-text p {
     margin: 0 auto;
     padding: 60px 20px;
     text-align: left;
+    background: #f8f8f8;
 }
 .strategy-summary h2 {
     font-size: 2.4em;
@@ -369,6 +370,9 @@ body.dark-mode .graph-text p {
     color: #d64545;
     font-weight: 700;
 }
+body.dark-mode .strategy-summary {
+    background: #111;
+}
 body.dark-mode .strategy-summary h2,
 body.dark-mode .strategy-summary p {
     color: #eee;
@@ -376,6 +380,8 @@ body.dark-mode .strategy-summary p {
 body.dark-mode .strategy-summary .highlight {
     color: #ff7f7f;
 }
+
+
 
 .church-market {
     display: flex;
