@@ -77,5 +77,5 @@ window.addEventListener('DOMContentLoaded', function() {
     setTimeout(function(){
         const heroBg = document.querySelector('.hero-bg-img');
         if(heroBg) heroBg.classList.add('show');
-    }, 2200); // 2000ms + 약간
+    }, 1200); // 2000ms + 약간
 });
