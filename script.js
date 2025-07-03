@@ -13,12 +13,13 @@ window.addEventListener('scroll', function() {
     }
 });
 window.addEventListener('DOMContentLoaded', function() {
-    // 첫 hero 영역은 페이지가 열리자마자 reveal
-    document.querySelectorAll('.hero .reveal').forEach(function(el) {
-        el.classList.add('show');
-    });
+    // hero는 페이지 로드 후 약간 delay 주고 reveal
+    setTimeout(function(){
+        document.querySelectorAll('.hero .reveal').forEach(function(el) {
+            el.classList.add('show');
+        });
+    }, 200); // 0.2초 후 자연스러운 트리거
 
-    // 나머지는 scroll reveal
     var reveals = document.querySelectorAll('.reveal');
     window.addEventListener('scroll', function() {
         for (var i = 0; i < reveals.length; i++) {
