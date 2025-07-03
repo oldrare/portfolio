@@ -66,11 +66,16 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 
 window.addEventListener('DOMContentLoaded', function() {
+    // 글자는 즉시 올라오도록
     setTimeout(function(){
         document.querySelectorAll('.hero .reveal').forEach(function(el) {
             el.classList.add('show');
         });
+    }, 200);
+
+    // 이미지는 글자 올라온 뒤 2초 뒤 등장
+    setTimeout(function(){
         const heroBg = document.querySelector('.hero-bg-img');
         if(heroBg) heroBg.classList.add('show');
-    }, 200);
+    }, 2200); // 2000ms + 약간
 });
