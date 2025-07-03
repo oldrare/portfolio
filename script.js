@@ -12,7 +12,25 @@ window.addEventListener('scroll', function() {
         }
     }
 });
+window.addEventListener('DOMContentLoaded', function() {
+    // 첫 hero 영역은 페이지가 열리자마자 reveal
+    document.querySelectorAll('.hero .reveal').forEach(function(el) {
+        el.classList.add('show');
+    });
 
+    // 나머지는 scroll reveal
+    var reveals = document.querySelectorAll('.reveal');
+    window.addEventListener('scroll', function() {
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 100;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add('show');
+            }
+        }
+    });
+});
 window.addEventListener('DOMContentLoaded', function() {
     const ctx = document.getElementById('salesCompareChart').getContext('2d');
     new Chart(ctx, {
