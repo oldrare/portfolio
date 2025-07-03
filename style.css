@@ -374,3 +374,14 @@ body.dark-mode .church-market .graph-text p {
         max-width: 90%;
     }
 }
+.compare-graph .graph-text,
+.church-market .graph-text {
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .compare-graph .graph-text,
+    .church-market .graph-text {
+        text-align: center;
+    }
+}
