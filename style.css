@@ -263,18 +263,15 @@ body.dark-mode .gallery {
 }
 .gallery-container {
     display: flex;
-    overflow-x: auto;
     gap: 20px;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 10px;
     animation: scrollGallery 20s linear infinite;
-}
-.gallery-container:hover {
-    animation-play-state: paused;
 }
 @keyframes scrollGallery {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
+}
+.gallery-container:hover {
+    animation-play-state: paused;
 }
 .gallery-container img {
     flex: 0 0 auto;
@@ -284,6 +281,7 @@ body.dark-mode .gallery {
     object-fit: cover;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
+
 
 .compare-graph.flex-graph {
     display: flex;
