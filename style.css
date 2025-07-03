@@ -515,14 +515,19 @@ body.dark-mode .portfolio-section h2 {
     overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* 글자 중앙 정렬 */
 }
 .portfolio-item img {
     width: 100%;
-    display: block;
+    height: 600px; /* 세로형 */
+    object-fit: cover;
     transition: transform 0.5s;
 }
 .portfolio-item:hover img {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .overlay {
@@ -536,6 +541,7 @@ body.dark-mode .portfolio-section h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     padding: 20px;
     transition: opacity 0.4s;
 }
@@ -565,11 +571,10 @@ body.dark-mode .portfolio-section h2 {
 }
 
 .tags {
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
+    margin-top: 15px;
     display: flex;
     gap: 8px;
+    justify-content: center;
 }
 .tags span {
     background: #232323;
