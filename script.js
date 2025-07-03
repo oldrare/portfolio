@@ -13,25 +13,26 @@ window.addEventListener('scroll', function() {
     }
 });
 window.addEventListener('DOMContentLoaded', function() {
-    // hero는 페이지 로드 후 약간 delay 주고 reveal
+    // FRONT END & MARKETING 먼저
+    setTimeout(function(){
+        const wm = document.querySelector('.hero-watermark');
+        if(wm) wm.classList.add('show');
+    }, 300);
+
+    // 그다음 글자
     setTimeout(function(){
         document.querySelectorAll('.hero .reveal').forEach(function(el) {
             el.classList.add('show');
         });
-    }, 200); // 0.2초 후 자연스러운 트리거
+    }, 600);
 
-    var reveals = document.querySelectorAll('.reveal');
-    window.addEventListener('scroll', function() {
-        for (var i = 0; i < reveals.length; i++) {
-            var windowHeight = window.innerHeight;
-            var elementTop = reveals[i].getBoundingClientRect().top;
-            var elementVisible = 100;
-            if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add('show');
-            }
-        }
-    });
+    // 이미지
+    setTimeout(function(){
+        const heroBg = document.querySelector('.hero-bg-img');
+        if(heroBg) heroBg.classList.add('show');
+    }, 1200);
 });
+
 window.addEventListener('DOMContentLoaded', function() {
     const ctx = document.getElementById('salesCompareChart').getContext('2d');
     new Chart(ctx, {
