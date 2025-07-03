@@ -89,7 +89,32 @@ body.dark-mode .card {
     color: #eee;
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.skills .card {
+    flex: 1 1 calc(25% - 20px);
+    max-width: calc(25% - 20px);
+}
 
+/* 태블릿: 2개씩 */
+@media (max-width: 768px) {
+    .skills .card {
+        flex: 1 1 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+}
+
+/* 모바일: 1개씩 */
+@media (max-width: 480px) {
+    .skills .card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
 a { color: #0066cc; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
