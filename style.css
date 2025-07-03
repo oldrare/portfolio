@@ -314,19 +314,24 @@ body.dark-mode .strategy-summary p {
 body.dark-mode .strategy-summary .highlight {
     color: #ff7f7f;
 }
+
 .church-market {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    gap: 40px;
     background: #fafafa;
     padding: 60px 20px;
-    text-align: center;
+    text-align: left;
 }
 body.dark-mode .church-market {
     background: #111;
 }
-
+.church-market .graph-text {
+    flex: 2 1 600px; /* 글자 영역 넓게 */
+    max-width: 700px;
+}
 .church-market .graph-text h2 {
     font-size: 2em;
     margin-bottom: 20px;
@@ -337,27 +342,35 @@ body.dark-mode .church-market {
     color: #555;
     line-height: 1.8;
 }
-.church-market .graph-text {
-    flex: 2 1 500px;
-    max-width: 600px;
+body.dark-mode .church-market .graph-text h2,
+body.dark-mode .church-market .graph-text p {
+    color: #eee;
 }
+
+/* 이미지 영역 작게 유지 */
 .church-market .graph-chart {
-    flex: 1 1 300px;
-    max-width: 400px;
+    flex: 1 1 200px;
+    max-width: 300px;
 }
 .church-market .graph-chart img.church-img {
     width: 100%;
     height: auto;
     object-fit: cover;
     border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
-body.dark-mode .church-market .graph-text h2,
-body.dark-mode .church-market .graph-text p {
-    color: #eee;
-}
-.church-market .graph-chart img.church-img {
-    width: 350px;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 12px;
+
+/* 모바일에서 스택되면 자연스럽게 */
+@media (max-width: 768px) {
+    .church-market {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .church-market .graph-text {
+        max-width: 90%;
+    }
+    .church-market .graph-chart {
+        max-width: 90%;
+    }
 }
