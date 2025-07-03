@@ -85,9 +85,12 @@ h1, h2 {
     box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 body.dark-mode .card {
-    background: #222;
-    color: #eee;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    background: #fff; /* 흰색 */
+    color: #111;      /* 글자는 어두운 색 */
+    box-shadow: 0 6px 20px rgba(255,255,255,0.1);
+}
+body.dark-mode .card a {
+    color: #0066cc;
 }
 .skills {
     display: flex;
@@ -224,7 +227,9 @@ body.dark-mode .hero {
 body.dark-mode .hero h1, body.dark-mode .hero p {
     color: #eee;
 }
-
+body.dark-mode .container {
+    background: #111;
+}
 
 .philosophy {
     min-height: 60vh;
