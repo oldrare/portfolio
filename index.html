@@ -1,204 +1,736 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>홍길동 포트폴리오</title>
-    <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-    <button class="toggle-dark" onclick="toggleDarkMode()">
-        🌙 <span>다크 모드</span>
-    </button>
+body {
+    margin:0; padding:0;
+    font-family: 'Noto Sans KR', sans-serif;
+    background:#f7f7f7;
+    color:#333;
+    transition: background 0.5s, color 0.5s;
+}
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+* {
+    box-sizing: border-box;
+}
+.hero, .page {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background-size:cover;
+    background-position:center;
+    position: relative;
+}
+.hero {
+    position: relative;
+    overflow: hidden;
+    background: #eee;
+}
 
-<div class="hero">
-    <div class="hero-watermark">FRONT END & MARKETING</div>
-    <img src="images/top_new.png?text=Profile" alt="profile" class="hero-bg-img">
-    <h1 class="reveal">안녕하세요, 전성윤입니다 👋</h1>
-    <p class="reveal">디지털 마케팅과 프론트엔드 개발을 함께합니다.</p>
-</div>
+.hero-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5vw; /* 화면 크기에 따라 크게 */
+    color: rgba(0,0,0,0.05); /* 연한 색상 */
+    font-weight: 900;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
 
-<div class="container">
-    <div class="container-inner">
-        <h2 class="reveal show">💻 Web Skills</h2>
-        <div class="skills">
-            <div class="card reveal">HTML5 / CSS3 / JavaScript</div>
-            <div class="card reveal">반응형 웹 / 크로스브라우징</div>
-        </div>
+    z-index: 0;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+.hero-watermark.show {
+    opacity: 1;
+    transform: translate(-50%, -120%) translateY(0);
+}
+body.dark-mode .hero-watermark {
+    color: rgba(255,255,255,0.05);
+}
+.hero h1, .hero p, .hero img {
+    position: relative;
+    z-index: 1; /* 워터마크 위에 표시 */
+}
+.hero .hero-bg-img {
+    position: absolute;
+    top: 50%;
 
-        <h2 class="reveal show">🎨 Design Tools</h2>
-        <div class="skills">
-            <div class="card reveal">Photoshop / Illustrator</div>
-            <div class="card reveal">Premiere Pro</div>
-            <div class="card reveal">Filmora</div>
-        </div>
+    width: 300px;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+.hero .hero-bg-img.show {
+    opacity: 1;
+}
 
-        <h2 class="reveal show">📈 Marketing</h2>
-        <div class="skills">
-            <div class="card reveal">네이버 쇼핑검색 / 블로그 키워드</div>
-            <div class="card reveal">Meta (페이스북, 인스타그램)</div>
-            <div class="card reveal">구글 애즈 / 유튜브 광고</div>
-            <div class="card reveal">ROAS 분석 & 최적화</div>
-        </div>
+.hero .reveal {
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+.hero .reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+    text-align: center;
+}
 
-        <h2 class="reveal show">🛒 E-Commerce</h2>
-        <div class="skills">
-            <div class="card reveal">스마트스토어 / 카페24 / 고도몰</div>
-            <div class="card reveal">백화점몰 / 오픈 마켓</div>
-        </div>
-        
-        <h2 class="reveal show">🔗 Contact</h2>
-        <div class="contact">
-            <div class="card reveal">oldrare112@gmail.com</div>
-            <div class="card reveal"><a href="https://github.com/username" target="_blank">GitHub</a></div>
-        </div>
-    </div>
-    </div>
+/* 페이지 로딩 후 올라오는 애니메이션 */
+.hero .hero-bg-img.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.container {
+    width: 100%;
+    background: #f7f7f7;
+    padding: 40px 20px;
+}
+body.dark-mode .container {
+    background: #111;
+}
+.container-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.container-inner h2 {
+    color: #222;
+}
+body.dark-mode .container-inner h2 {
+    color: #eee;
+}
+body.dark-mode .card {
+    background: #fff;
+    color: #111;
+}
+body.dark-mode .card a {
+    color: #0066cc;
+}
+h1, h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.skills, .contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    padding: 20px;
+    flex: 1 1 200px;
+    max-width: 300px;
+    transition: all 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+body.dark-mode .card {
+    background: #fff; /* 흰색 */
+    color: #111;      /* 글자는 어두운 색 */
+    box-shadow: 0 6px 20px rgba(255,255,255,0.1);
+}
+body.dark-mode .card a {
+    color: #0066cc;
+}
+.skills, .contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
 
-    <section class="statement">
-        <h1 class="reveal">평균 ROAS <strong class="highlight">350%</strong> 달성<br>
-        다각도의 마케팅 전략으로<br>
-        좋은 성과를 보여주고 있습니다.</h1>
-        <p class="reveal">
-            ROAS <strong class="highlight">+67%</strong>, 
-            월 매출 <strong class="highlight">+77%</strong> 상승<br>
-            쇼핑검색 <strong class="highlight">상위노출</strong> 경험 다수<br>
-            <strong class="highlight">50개</strong> 이상 블로그 키워드 상위노출
-        </p>
-        <p class="reveal highlight-text">
-            2025년, 첫 연간 매출 1억 돌파<br>
-            지속가능한 브랜드 성장을 위한<br>
-            데이터 기반 마케팅 수행
-        </p>
-    </section>
+.skills .card,
+.contact .card {
+    flex: 1 1 calc(33% - 20px);
+    max-width: calc(33% - 20px);
+}
 
-    <section class="philosophy">
-    <h1 class="reveal">
-        우리는 데이터와 디지털 마케팅을 통해<br>
-        브랜드가 가진 본질적인 가치를 발견하고<br>
-        '어제보다 나은 오늘'을 위해 몰입합니다.
-    </h1>
-    <p class="reveal">
-        다양한 채널과 데이터 분석을 통해<br>
-        고객과 브랜드 모두가 성장할 수 있는 길을 찾습니다.
-    </p>
-    </section>
+@media (max-width: 768px) {
+    .skills .card,
+    .contact .card {
+        flex: 1 1 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+}
 
-<section class="gallery">
-    <div class="gallery-container">
-        <img src="https://placehold.co/400x250?text=Image+1" />
-        <img src="https://placehold.co/400x250?text=Image+2" />
-        <img src="https://placehold.co/400x250?text=Image+3" />
-        <img src="https://placehold.co/400x250?text=Image+4" />
-        <img src="https://placehold.co/400x250?text=Image+1" />
-        <img src="https://placehold.co/400x250?text=Image+2" />
-        <img src="https://placehold.co/400x250?text=Image+3" />
-        <img src="https://placehold.co/400x250?text=Image+4" />
-    </div>
-</section>
+@media (max-width: 480px) {
+    .skills .card,
+    .contact .card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+a { color: #0066cc; text-decoration: none; }
+a:hover { text-decoration: underline; }
 
-    <section class="compare-graph flex-graph">
-        <div class="graph-text reveal">
-            <h2>📈 데이터 기반 마케팅 전략</h2>
-            <p>
-                - 네이버 쇼핑검색 & 블로그 키워드 최적화<br>
-                - Meta 광고 세분화 & 리타겟팅<br>
-                - ROAS 평균 300% 달성<br>
-                - 2024.4~6월 대비 +67% 개선
-            </p>
-        </div>
-<div class="graph-chart reveal show">
-    <canvas id="salesCompareChart"></canvas>
-</div>
-    </section>
+.toggle-dark {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #333;
+    color: #f7f7f7;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+.toggle-dark:hover { background: #555; }
 
-   
-<section class="church-market">
-    <div class="graph-text reveal">
-        <h2>🔎신규 키워드 발굴</h2>
-        <p>
-            - 책갈피 소량 각인 시 교회,성경관련 문구가 많은 것을 확인<br>
-            - 해당 상품을 개별 키워드로 별도 상품페이지 제작 및 등록<br>
-            - 4월 런칭 이후 5월까지 결제 상품수량 <strong class="highlight">312건</strong><br>
-            - 4~5월 평균 ROAS <strong class="highlight">652%</strong> 달성 <br>
+@media (max-width:600px){
+    .toggle-dark { padding:12px; font-size:20px;}
+    .toggle-dark span { display:none; }
+}
 
-        </p>
-    </div>
-    <div class="graph-chart reveal">
-        <img src="https://placehold.co/350x500?text=교회+책갈피+마케팅" alt="교회 책갈피 마케팅" class="church-img">
-    </div>
-</section>
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-<section class="strategy-graph flex-graph">
-    <div class="strategy-text reveal show">
-    <h2>🚀 구조적 매출 혁신</h2>
-    <p>
-        코로나 이후 공공기관 및 단체 주문 위주의 저단가 제품(책갈피, 코스터, 손거울) 매출이 급감하며,
-        당시 회사 매출 구조는 판매수량의 <span class="highlight">98%</span> 이상이 저단가 소품에 집중,
-        도마 같은 고단가 제품 매출 비중은 <span class="highlight">23%</span> 수준에 불과했습니다.<br><br>
+.hero h1, .hero p,
+.page h1, .page p {
+    color: #333;
+    position: relative;
+    z-index: 1;
+}
+body.dark-mode .hero h1, body.dark-mode .hero p,
+body.dark-mode .page h1, body.dark-mode .page p {
+    color: #eee;
+}
 
-        마케팅 담당자로 투입된 후, 기존 공공기관·단체 중심 저단가 구조를 개선하기 위해
-        객단가가 소품 대비 <span class="highlight">12배</span> 이상 높은 도마 제품군에 집중한 마케팅 전략을 전개,
-        작년 동기간(3~6월) 대비 도마 판매수량을 <span class="highlight">122%</span>, 매출을 <span class="highlight">93%</span> 증가시키며
-        브랜드 포트폴리오를 질적으로 전환했습니다.<br><br>
+.graph-section canvas {
+    position: absolute;
+    top:0; left:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+    opacity:0.2;
+}
 
-        동시에 기존 단체시장 고객층을 세분화해 교회 맞춤 성경책갈피라는 신규 키워드 마케팅을 기획·집행,
-        공공기관 의존에서 벗어나 교회·신앙단체라는 새로운 잠재 고객층을 확보,
-        저단가 상품에서도 안정적인 볼륨을 유지할 수 있는 시장을 새롭게 개척했습니다.<br><br>
+.statement {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #f8f8f8;
+    padding: 40px 20px;
+}
+.statement h1 {
+    font-size: 3.2em;
+    line-height: 1.4;
+    color: #222;
+    margin-bottom: 1em;
+}
+.statement p {
+    font-size: 1.6em;
+    line-height: 1.5;
+    color: #555;
+    margin: 0.5em 0;
+}
+.statement .highlight {
+    color: #d64545;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+.statement p.highlight-text {
+    font-weight: 700;
+    color: #000;
+    font-size: 1.8em;
+}
+body.dark-mode .statement {
+    background: #111;
+}
+body.dark-mode .statement h1,
+body.dark-mode .statement p {
+    color: #eee;
+}
+body.dark-mode .statement .highlight {
+    color: #ff7f7f;
+}
+.hero {
+    background: #eee;
+}
+.hero h1, .hero p {
+    color: #333;
+}
+body.dark-mode .hero {
+    background: #111;
+}
+body.dark-mode .hero h1, body.dark-mode .hero p {
+    color: #eee;
+}
 
-        이를 통해 단순 판매량 확대를 넘어 평균 객단가와 마진율을 동반 개선하는 구조적 전환을 이루었습니다.
-    </p>
-    </div>
-</section>
 
-    
-<section class="portfolio-section">
-    <h2>🚀 프로젝트 포트폴리오</h2>
-    <div class="portfolio-grid">
-        <div class="portfolio-item">
-            <img src="https://placehold.co/400x600?text=Project+1" alt="project">
-            <div class="overlay">
-                <h4>밀라노리빙 자사몰</h4>
-                <p>침대&매트리스 쇼핑몰</p>
-                <button>자세히 보기</button>
-            </div>
-            <div class="tags">
-                <span>쇼핑몰</span>
-                <span>솔로</span>
-                <span>관리</span>
-            </div>
-        </div>
+.philosophy {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #f5f5f5;
+    padding: 60px 20px;
+}
+.philosophy h1 {
+    font-size: 2.5em;
+    line-height: 1.5;
+    color: #222;
+}
+.philosophy p {
+    font-size: 1.4em;
+    margin-top: 1em;
+    color: #555;
+}
+body.dark-mode .philosophy {
+    background: #111;
+}
+body.dark-mode .philosophy h1,
+body.dark-mode .philosophy p {
+    color: #eee;
+}
 
-        <div class="portfolio-item">
-            <img src="https://placehold.co/400x600?text=Project+2" alt="project">
-            <div class="overlay">
-                <h4>감성모먼트 SS</h4>
-                <p>우드소품 쇼핑몰</p>
-                <button>자세히 보기</button>
-            </div>
-            <div class="tags">
-                <span>쇼핑몰</span>
-                <span>솔로</span>
-                <span>관리</span>
-            </div>
-        </div>
+.gallery {
+    overflow: hidden;
+    padding: 40px 0;
+    background: #fafafa;
+}
+body.dark-mode .gallery {
+    background: #222;
+}
+.gallery-container {
+    display: flex;
+    gap: 20px;
+    animation: scrollGallery 20s linear infinite;
+}
 
-        <div class="portfolio-item">
-            <img src="https://placehold.co/400x600?text=Project+3" alt="project">
-            <div class="overlay">
-                <h4></h4>
-                <p>포켓몬 API를 활용한 도감</p>
-                <button>Github 보기</button>
-            </div>
-            <div class="tags">
-                <span>솔로</span>
-                <span>토이</span>
-            </div>
-        </div>
-    </div>
-</section>
-    
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
+@keyframes scrollGallery {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.gallery-container:hover {
+    animation-play-state: paused;
+}
+.gallery-container img {
+    flex: 0 0 auto;
+    width: 400px;
+    height: 250px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+
+.compare-graph.flex-graph {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    background: #fafafa;
+    padding: 60px 20px;
+}
+body.dark-mode .compare-graph.flex-graph {
+    background: #111;
+}
+.graph-text {
+    flex: 1 1 300px;
+    max-width: 400px;
+    text-align: left;
+}
+.graph-text h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #222;
+}
+.graph-text p {
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.6;
+}
+body.dark-mode .graph-text h2,
+body.dark-mode .graph-text p {
+    color: #eee;
+}
+.graph-chart {
+    flex: 1 1 400px;
+    max-width: 600px;
+}
+.graph-chart canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+.toggle-dark {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #333;
+    color: #f7f7f7;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+.toggle-dark:hover { background: #555; }
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* strategy-summary wrapper가 전체 배경을 담당 */
+.strategy-summary-wrapper {
+    background: #f8f8f8;
+}
+body.dark-mode .strategy-summary-wrapper {
+    background: #111;
+}
+
+/* 안쪽 box는 폭과 글자색만 담당 */
+.strategy-summary {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    text-align: left;
+    background: none; /* background 제거 */
+}
+
+.strategy-summary h2 {
+    font-size: 2.4em;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.strategy-summary p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #555;
+}
+
+.strategy-summary .highlight {
+    color: #d64545;
+    font-weight: 700;
+}
+
+body.dark-mode .strategy-summary h2,
+body.dark-mode .strategy-summary p {
+    color: #eee;
+}
+
+body.dark-mode .strategy-summary .highlight {
+    color: #ff7f7f;
+}
+.church-market {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    background: #fafafa;
+    padding: 60px 20px;
+    text-align: left;
+}
+body.dark-mode .church-market {
+    background: #111;
+}
+.church-market .graph-text {
+    flex: 2 1 600px; /* 글자 영역 넓게 */
+    max-width: 700px;
+}
+.church-market .graph-text h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #222;
+}
+.church-market .graph-text p {
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.8;
+}
+body.dark-mode .church-market .graph-text h2,
+body.dark-mode .church-market .graph-text p {
+    color: #eee;
+}
+
+/* 이미지 영역 작게 유지 */
+.church-market .graph-chart {
+    flex: 1 1 200px;
+    max-width: 300px;
+}
+.church-market .graph-chart img.church-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* 모바일에서 스택되면 자연스럽게 */
+@media (max-width: 768px) {
+    .church-market {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .church-market .graph-text {
+        max-width: 90%;
+    }
+    .church-market .graph-chart {
+        max-width: 90%;
+    }
+}
+.compare-graph .graph-text h2,
+.church-market .graph-text h2 {
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .compare-graph .graph-text h2,
+    .church-market .graph-text h2 {
+        text-align: center;
+    }
+}
+
+
+.portfolio-section {
+    padding: 80px 20px;
+    background: #f8f8f8;
+    text-align: center;
+}
+body.dark-mode .portfolio-section {
+    background: #111;
+}
+.portfolio-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #222;
+}
+body.dark-mode .portfolio-section h2 {
+    color: #eee;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+@media (max-width: 480px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    background: #fff;
+    text-align: center;
+}
+
+.portfolio-item img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.05);
+}
+
+
+.overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(50,50,50,0.9);
+    color: #fff;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0px;
+    transition: opacity 0.4s;
+}
+.portfolio-item:hover .overlay {
+    opacity: 1;
+}
+.overlay h4 {
+    font-size: 1.8em;
+    margin: 0 0 15px 0; /* 위아래 margin을 깔끔하게 */
+}
+.overlay p {
+    font-size: 1em;
+    margin: 0 0 20px 0;
+}
+.overlay button {
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.overlay button:hover {
+    background: #fff;
+    color: #333;
+}
+
+.tags {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+.tags span {
+    background: #232323;
+    color: #fff;
+    font-size: 0.8em;
+    padding: 5px 12px;
+    border-radius: 20px;
+}
+.strategy-summary.flex-graph {
+    background: #f8f8f8;
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.strategy-summary h2 {
+    font-size: 2.4em;
+    margin-bottom: 20px;
+    color: #222;
+}
+.strategy-summary p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #555;
+}
+.strategy-summary .highlight {
+    color: #d64545;
+    font-weight: 700;
+}
+body.dark-mode .strategy-summary {
+    background: #111;
+}
+body.dark-mode .strategy-summary h2,
+body.dark-mode .strategy-summary p {
+    color: #eee;
+}
+body.dark-mode .strategy-summary .highlight {
+    color: #ff7f7f;
+}
+
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    h2 {
+        font-size: 1.4em;
+    }
+    p {
+        font-size: 1em;
+    }
+
+    .statement h1 {
+        font-size: 2em;
+    }
+    .statement p {
+        font-size: 1.2em;
+    }
+    .philosophy h1 {
+        font-size: 2em;
+    }
+    .philosophy p {
+        font-size: 1.2em;
+    }
+    .graph-text h2 {
+        font-size: 1.5em;
+    }
+    .graph-text p {
+        font-size: 1em;
+    }
+    .strategy-summary h2 {
+        font-size: 1.6em;
+    }
+    .strategy-summary p {
+        font-size: 1em;
+    }
+}
+.strategy-graph.flex-graph {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    background: #fafafa;
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+body.dark-mode .strategy-graph.flex-graph {
+    background: #111;
+}
+
+.flex-graph h2,
+.strategy-summary h2,
+.church-market h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #222;
+}
+.flex-graph p,
+.strategy-summary p,
+.church-market p {
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.6;
+}
+body.dark-mode .flex-graph h2,
+body.dark-mode .strategy-summary h2,
+body.dark-mode .church-market h2,
+body.dark-mode .flex-graph p,
+body.dark-mode .strategy-summary p,
+body.dark-mode .church-market p {
+    color: #eee;
+}
