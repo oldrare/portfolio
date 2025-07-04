@@ -77,9 +77,18 @@ document.querySelectorAll('.open-modal-btn').forEach(btn => {
         document.body.style.overflow = 'hidden'; // 스크롤 잠금
     });
 });
+
 document.querySelectorAll('.close-modal-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         btn.closest('.portfolio-modal').classList.remove('show');
-        document.body.style.overflow = ''; // 스크롤 복구
+        document.body.style.overflow = ''; // 스크롤 복원
+    });
+});
+
+document.querySelectorAll('.portfolio-modal').forEach(modal => {
+    modal.addEventListener('click', (e) => {
+        if(e.target.closest('.modal-inner')) return; // 내용 클릭 시 무시
+        modal.classList.remove('show');
+        document.body.style.overflow = ''; // 스크롤 복원
     });
 });
