@@ -504,6 +504,7 @@ body.dark-mode .church-market .graph-text p {
         text-align: center;
     }
     .church-market .graph-text {
+        flex: 1 1 auto;
         max-width: 90%;
     }
     .church-market .graph-chart {
