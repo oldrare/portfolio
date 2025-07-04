@@ -711,3 +711,26 @@ body.dark-mode .strategy-summary .highlight {
 body.dark-mode .strategy-graph.flex-graph {
     background: #111;
 }
+
+.flex-graph h2,
+.strategy-summary h2,
+.church-market h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #222;
+}
+.flex-graph p,
+.strategy-summary p,
+.church-market p {
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.6;
+}
+body.dark-mode .flex-graph h2,
+body.dark-mode .strategy-summary h2,
+body.dark-mode .church-market h2,
+body.dark-mode .flex-graph p,
+body.dark-mode .strategy-summary p,
+body.dark-mode .church-market p {
+    color: #eee;
+}
