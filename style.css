@@ -315,6 +315,7 @@ body.dark-mode .philosophy p {
 .gallery {
     padding: 40px 20px;
     background: #fafafa;
+    overflow: hidden;
 }
 body.dark-mode .gallery {
     background: #222;
@@ -323,7 +324,6 @@ body.dark-mode .gallery {
     display: flex;
     gap: 20px;
     animation: scrollGallery 20s linear infinite;
-    overflow-x: hidden;
 }
 
 @keyframes scrollGallery {
