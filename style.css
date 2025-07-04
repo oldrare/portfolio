@@ -147,27 +147,30 @@ body.dark-mode .card {
 body.dark-mode .card a {
     color: #0066cc;
 }
-.skills {
+.skills, .contact {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
 }
-.skills .card {
+
+.skills .card,
+.contact .card {
     flex: 1 1 calc(33% - 20px);
     max-width: calc(33% - 20px);
 }
-/* 태블릿: 2개씩 */
+
 @media (max-width: 768px) {
-    .skills .card {
+    .skills .card,
+    .contact .card {
         flex: 1 1 calc(50% - 20px);
         max-width: calc(50% - 20px);
     }
 }
 
-/* 모바일: 1개씩 */
 @media (max-width: 480px) {
-    .skills .card {
+    .skills .card,
+    .contact .card {
         flex: 1 1 100%;
         max-width: 100%;
     }
