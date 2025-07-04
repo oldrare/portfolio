@@ -5,7 +5,13 @@ body {
     color:#333;
     transition: background 0.5s, color 0.5s;
 }
-
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+* {
+    box-sizing: border-box;
+}
 .hero, .page {
     display:flex;
     flex-direction: column;
@@ -317,7 +323,9 @@ body.dark-mode .gallery {
     display: flex;
     gap: 20px;
     animation: scrollGallery 20s linear infinite;
+    overflow-x: hidden;
 }
+
 @keyframes scrollGallery {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
@@ -538,7 +546,11 @@ body.dark-mode .portfolio-section h2 {
     max-width: 1200px;
     margin: 0 auto;
 }
-
+@media (max-width: 480px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
 .portfolio-item {
     position: relative;
     overflow: hidden;
