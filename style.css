@@ -1,141 +1,545 @@
-/* ------------------------
-   Reset & Base
------------------------- */
 body {
-    margin: 0; padding: 0;
+    margin:0; padding:0;
     font-family: 'Noto Sans KR', sans-serif;
-    background: #f7f7f7;
-    color: #333;
+    background:#f7f7f7;
+    color:#333;
     transition: background 0.5s, color 0.5s;
 }
-html, body { max-width: 100%; overflow-x: hidden; }
-* { box-sizing: border-box; }
-
-h1, h2 {
-    text-align: center;
-    margin-bottom: 30px;
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
-
-a { color: #0066cc; text-decoration: none; }
-a:hover { text-decoration: underline; }
-
-/* ------------------------
-   Hero Section
------------------------- */
-.hero {
-    position: relative;
-    overflow: hidden;
-    background: #eee;
-    display: flex;
+* {
+    box-sizing: border-box;
+}
+.hero, .page {
+    display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     text-align: center;
+    background-size:cover;
+    background-position:center;
+    position: relative;
 }
+.hero {
+    position: relative;
+    overflow: hidden;
+    background: #eee;
+}
+
 .hero-watermark {
     position: absolute;
-    top: 50%; left: 50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 5vw;
-    color: rgba(0,0,0,0.05);
+    font-size: 5vw; /* 화면 크기에 따라 크게 */
+    color: rgba(0,0,0,0.05); /* 연한 색상 */
     font-weight: 900;
     white-space: nowrap;
     pointer-events: none;
     user-select: none;
+
     z-index: 0;
     opacity: 0;
     transition: all 0.4s ease;
 }
-.hero-watermark.show { opacity: 1; transform: translate(-50%, -120%) translateY(0); }
-.hero h1, .hero p, .hero img { position: relative; z-index: 1; }
+.hero-watermark.show {
+    opacity: 1;
+    transform: translate(-50%, -120%) translateY(0);
+}
+body.dark-mode .hero-watermark {
+    color: rgba(255,255,255,0.05);
+}
+.hero h1, .hero p, .hero img {
+    position: relative;
+    z-index: 1; /* 워터마크 위에 표시 */
+}
 .hero .hero-bg-img {
     position: absolute;
-    top: 50%; left: 50%;
-    width: 300px; height: auto;
+    top: 50%;
+
+    width: 300px;
+    height: auto;
     transform: translate(-50%, -50%);
+    z-index: 0;
     opacity: 0;
     transition: opacity 0.8s ease;
     border-radius: 12px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
-.hero .hero-bg-img.show { opacity: 1; }
+.hero .hero-bg-img.show {
+    opacity: 1;
+}
 
-.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
-.reveal.show { opacity: 1; transform: translateY(0); }
+.hero .reveal {
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+.hero .reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+    text-align: center;
+}
 
-/* ------------------------
-   Common Sections
------------------------- */
-.flex-graph,
-.strategy-summary.flex-graph,
-.church-market,
-.portfolio-section {
-    background: #fafafa;
-    padding: 60px 20px;
+/* 페이지 로딩 후 올라오는 애니메이션 */
+.hero .hero-bg-img.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.container {
+    width: 100%;
+    background: #f7f7f7;
+    padding: 40px 20px;
+}
+body.dark-mode .container {
+    background: #111;
+}
+.container-inner {
     max-width: 1000px;
     margin: 0 auto;
 }
-
-/* ------------------------
-   Typography for all sections
------------------------- */
-.flex-graph h2,
-.strategy-summary h2,
-.church-market h2,
-.portfolio-section h2 {
-    font-size: 2.2em;
-    margin-bottom: 20px;
+.container-inner h2 {
     color: #222;
-    text-align: center;
 }
-.flex-graph p,
-.strategy-summary p,
-.church-market p,
-.portfolio-section p {
-    font-size: 1.2em;
-    line-height: 1.8;
+body.dark-mode .container-inner h2 {
+    color: #eee;
+}
+body.dark-mode .card {
+    background: #fff;
+    color: #111;
+}
+body.dark-mode .card a {
+    color: #0066cc;
+}
+h1, h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.skills, .contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    padding: 20px;
+    flex: 1 1 200px;
+    max-width: 300px;
+    transition: all 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+body.dark-mode .card {
+    background: #fff; /* 흰색 */
+    color: #111;      /* 글자는 어두운 색 */
+    box-shadow: 0 6px 20px rgba(255,255,255,0.1);
+}
+body.dark-mode .card a {
+    color: #0066cc;
+}
+.skills, .contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.skills .card,
+.contact .card {
+    flex: 1 1 calc(33% - 20px);
+    max-width: calc(33% - 20px);
+}
+
+@media (max-width: 768px) {
+    .skills .card,
+    .contact .card {
+        flex: 1 1 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .skills .card,
+    .contact .card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+a { color: #0066cc; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.toggle-dark {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #333;
+    color: #f7f7f7;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+.toggle-dark:hover { background: #555; }
+
+@media (max-width:600px){
+    .toggle-dark { padding:12px; font-size:20px;}
+    .toggle-dark span { display:none; }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero h1, .hero p,
+.page h1, .page p {
+    color: #333;
+    position: relative;
+    z-index: 1;
+}
+body.dark-mode .hero h1, body.dark-mode .hero p,
+body.dark-mode .page h1, body.dark-mode .page p {
+    color: #eee;
+}
+
+.graph-section canvas {
+    position: absolute;
+    top:0; left:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+    opacity:0.2;
+}
+
+.statement {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #f8f8f8;
+    padding: 40px 20px;
+}
+.statement h1 {
+    font-size: 3.2em;
+    line-height: 1.4;
+    color: #222;
+    margin-bottom: 1em;
+}
+.statement p {
+    font-size: 1.6em;
+    line-height: 1.5;
     color: #555;
-    text-align: center;
+    margin: 0.5em 0;
 }
-.strategy-summary .highlight,
-.church-market .highlight {
+.statement .highlight {
     color: #d64545;
+    font-size: 1.2em;
     font-weight: 700;
 }
+.statement p.highlight-text {
+    font-weight: 700;
+    color: #000;
+    font-size: 1.8em;
+}
+body.dark-mode .statement {
+    background: #111;
+}
+body.dark-mode .statement h1,
+body.dark-mode .statement p {
+    color: #eee;
+}
+body.dark-mode .statement .highlight {
+    color: #ff7f7f;
+}
+.hero {
+    background: #eee;
+}
+.hero h1, .hero p {
+    color: #333;
+}
+body.dark-mode .hero {
+    background: #111;
+}
+body.dark-mode .hero h1, body.dark-mode .hero p {
+    color: #eee;
+}
 
-/* ------------------------
-   Specific flex layouts
------------------------- */
-.compare-graph.flex-graph,
-.strategy-graph.flex-graph,
-.church-market {
+
+.philosophy {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #f5f5f5;
+    padding: 60px 20px;
+}
+.philosophy h1 {
+    font-size: 2.5em;
+    line-height: 1.5;
+    color: #222;
+}
+.philosophy p {
+    font-size: 1.4em;
+    margin-top: 1em;
+    color: #555;
+}
+body.dark-mode .philosophy {
+    background: #111;
+}
+body.dark-mode .philosophy h1,
+body.dark-mode .philosophy p {
+    color: #eee;
+}
+
+.gallery {
+    overflow: hidden;
+    padding: 40px 0;
+    background: #fafafa;
+}
+body.dark-mode .gallery {
+    background: #222;
+}
+.gallery-container {
+    display: flex;
+    gap: 20px;
+    animation: scrollGallery 20s linear infinite;
+}
+
+@keyframes scrollGallery {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.gallery-container:hover {
+    animation-play-state: paused;
+}
+.gallery-container img {
+    flex: 0 0 auto;
+    width: 400px;
+    height: 250px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+
+.compare-graph.flex-graph {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 40px;
-    text-align: left;
+    background: #fafafa;
+    padding: 60px 20px;
 }
-.graph-text, .strategy-text {
+body.dark-mode .compare-graph.flex-graph {
+    background: #111;
+}
+.graph-text {
     flex: 1 1 300px;
     max-width: 400px;
+    text-align: left;
 }
-.graph-chart, .church-market .graph-chart {
+.graph-text h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #222;
+}
+.graph-text p {
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.6;
+}
+body.dark-mode .graph-text h2,
+body.dark-mode .graph-text p {
+    color: #eee;
+}
+.graph-chart {
     flex: 1 1 400px;
     max-width: 600px;
 }
-.graph-chart canvas,
-.graph-chart img.church-img {
+.graph-chart canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+.toggle-dark {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #333;
+    color: #f7f7f7;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+.toggle-dark:hover { background: #555; }
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* strategy-summary wrapper가 전체 배경을 담당 */
+.strategy-summary-wrapper {
+    background: #f8f8f8;
+}
+body.dark-mode .strategy-summary-wrapper {
+    background: #111;
+}
+
+/* 안쪽 box는 폭과 글자색만 담당 */
+.strategy-summary {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    text-align: left;
+    background: none; /* background 제거 */
+}
+
+.strategy-summary h2 {
+    font-size: 2.4em;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.strategy-summary p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #555;
+}
+
+.strategy-summary .highlight {
+    color: #d64545;
+    font-weight: 700;
+}
+
+body.dark-mode .strategy-summary h2,
+body.dark-mode .strategy-summary p {
+    color: #eee;
+}
+
+body.dark-mode .strategy-summary .highlight {
+    color: #ff7f7f;
+}
+.church-market {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    background: #fafafa;
+    padding: 60px 20px;
+    text-align: left;
+}
+body.dark-mode .church-market {
+    background: #111;
+}
+.church-market .graph-text {
+    flex: 2 1 600px; /* 글자 영역 넓게 */
+    max-width: 700px;
+}
+.church-market .graph-text h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #222;
+}
+.church-market .graph-text p {
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.8;
+}
+body.dark-mode .church-market .graph-text h2,
+body.dark-mode .church-market .graph-text p {
+    color: #eee;
+}
+
+/* 이미지 영역 작게 유지 */
+.church-market .graph-chart {
+    flex: 1 1 200px;
+    max-width: 300px;
+}
+.church-market .graph-chart img.church-img {
     width: 100%;
     height: auto;
+    object-fit: cover;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-/* ------------------------
-   Portfolio
------------------------- */
+/* 모바일에서 스택되면 자연스럽게 */
+@media (max-width: 768px) {
+    .church-market {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .church-market .graph-text {
+        max-width: 90%;
+    }
+    .church-market .graph-chart {
+        max-width: 90%;
+    }
+}
+.compare-graph .graph-text h2,
+.church-market .graph-text h2 {
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .compare-graph .graph-text h2,
+    .church-market .graph-text h2 {
+        text-align: center;
+    }
+}
+
+
+.portfolio-section {
+    padding: 80px 20px;
+    background: #f8f8f8;
+    text-align: center;
+}
+body.dark-mode .portfolio-section {
+    background: #111;
+}
+.portfolio-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #222;
+}
+body.dark-mode .portfolio-section h2 {
+    color: #eee;
+}
+
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -143,135 +547,190 @@ a:hover { text-decoration: underline; }
     max-width: 1200px;
     margin: 0 auto;
 }
+@media (max-width: 480px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
 .portfolio-item {
     position: relative;
     overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.1);
     background: #fff;
+    text-align: center;
 }
+
 .portfolio-item img {
     width: 100%;
-    aspect-ratio: 2/3;
+    aspect-ratio: 2 / 3;
     object-fit: cover;
     display: block;
     transition: transform 0.5s;
 }
-.portfolio-item:hover img { transform: scale(1.05); }
+
+.portfolio-item:hover img {
+    transform: scale(1.05);
+}
+
 
 .overlay {
-    position: absolute; top:0; left:0;
-    width:100%; height:100%;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background: rgba(50,50,50,0.9);
     color: #fff;
     opacity: 0;
-    display: flex; flex-direction: column;
-    justify-content: center; align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    padding: 0px;
     transition: opacity 0.4s;
 }
-.portfolio-item:hover .overlay { opacity: 1; }
-.overlay h4 { font-size: 1.8em; margin: 0 0 15px 0; }
-.overlay p { font-size: 1em; margin: 0 0 20px 0; }
+.portfolio-item:hover .overlay {
+    opacity: 1;
+}
+.overlay h4 {
+    font-size: 1.8em;
+    margin: 0 0 15px 0; /* 위아래 margin을 깔끔하게 */
+}
+.overlay p {
+    font-size: 1em;
+    margin: 0 0 20px 0;
+}
 .overlay button {
-    padding: 10px 20px; background: transparent;
-    border: 1px solid #fff; color: #fff;
-    border-radius: 30px; cursor: pointer;
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 30px;
+    cursor: pointer;
     transition: all 0.3s;
 }
-.overlay button:hover { background: #fff; color: #333; }
-.tags { position: absolute; bottom:10px; left:50%; transform:translateX(-50%); display:flex; gap:8px;}
-.tags span { background:#232323; color:#fff; font-size:0.8em; padding:5px 12px; border-radius:20px; }
+.overlay button:hover {
+    background: #fff;
+    color: #333;
+}
 
-/* ------------------------
-   Skills / Contact Cards
------------------------- */
-.skills, .contact {
+.tags {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+.tags span {
+    background: #232323;
+    color: #fff;
+    font-size: 0.8em;
+    padding: 5px 12px;
+    border-radius: 20px;
+}
+.strategy-summary.flex-graph {
+    background: #f8f8f8;
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.strategy-summary h2 {
+    font-size: 2.4em;
+    margin-bottom: 20px;
+    color: #222;
+}
+.strategy-summary p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #555;
+}
+.strategy-summary .highlight {
+    color: #d64545;
+    font-weight: 700;
+}
+body.dark-mode .strategy-summary {
+    background: #111;
+}
+body.dark-mode .strategy-summary h2,
+body.dark-mode .strategy-summary p {
+    color: #eee;
+}
+body.dark-mode .strategy-summary .highlight {
+    color: #ff7f7f;
+}
+
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    h2 {
+        font-size: 1.4em;
+    }
+    p {
+        font-size: 1em;
+    }
+
+    .statement h1 {
+        font-size: 2em;
+    }
+    .statement p {
+        font-size: 1.2em;
+    }
+    .philosophy h1 {
+        font-size: 2em;
+    }
+    .philosophy p {
+        font-size: 1.2em;
+    }
+    .graph-text h2 {
+        font-size: 1.5em;
+    }
+    .graph-text p {
+        font-size: 1em;
+    }
+    .strategy-summary h2 {
+        font-size: 1.6em;
+    }
+    .strategy-summary p {
+        font-size: 1em;
+    }
+}
+.strategy-graph.flex-graph {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
+    gap: 40px;
+    background: #fafafa;
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
-.skills .card, .contact .card {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    padding: 20px;
-    flex: 1 1 calc(33% - 20px);
-    max-width: calc(33% - 20px);
-    transition: all 0.3s ease;
-}
-.skills .card:hover, .contact .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-}
-
-/* ------------------------
-   Dark Mode
------------------------- */
-body.dark-mode {
-    background: #111;
-    color: #eee;
-}
-body.dark-mode .hero { background: #111; }
-body.dark-mode .hero-watermark { color: rgba(255,255,255,0.05); }
-body.dark-mode .flex-graph,
-body.dark-mode .strategy-summary.flex-graph,
-body.dark-mode .church-market,
-body.dark-mode .portfolio-section,
-body.dark-mode .container {
+body.dark-mode .strategy-graph.flex-graph {
     background: #111;
 }
-body.dark-mode h2, body.dark-mode p,
-body.dark-mode .strategy-summary .highlight,
-body.dark-mode .church-market .highlight {
+
+.flex-graph h2,
+.strategy-summary h2,
+.church-market h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #222;
+}
+.flex-graph p,
+.strategy-summary p,
+.church-market p {
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.6;
+}
+body.dark-mode .flex-graph h2,
+body.dark-mode .strategy-summary h2,
+body.dark-mode .church-market h2,
+body.dark-mode .flex-graph p,
+body.dark-mode .strategy-summary p,
+body.dark-mode .church-market p {
     color: #eee;
-}
-body.dark-mode .card {
-    background: #fff;
-    color: #111;
-}
-
-/* ------------------------
-   Media Queries
------------------------- */
-@media (max-width: 768px) {
-    .compare-graph, .strategy-graph, .church-market {
-        flex-direction: column;
-        text-align: center;
-    }
-    .graph-text, .strategy-text, .church-market .graph-text, .church-market .graph-chart {
-        max-width: 90%;
-    }
-    .skills .card, .contact .card {
-        flex: 1 1 calc(50% - 20px);
-        max-width: calc(50% - 20px);
-    }
-}
-@media (max-width: 480px) {
-    h1 { font-size: 1.8em; }
-    h2 { font-size: 1.4em; }
-    p { font-size: 1em; }
-    .skills .card, .contact .card {
-        flex: 1 1 100%; max-width: 100%;
-    }
-}
-
-/* ------------------------
-   Toggle Dark Mode Button
------------------------- */
-.toggle-dark {
-    position: fixed; bottom: 20px; right: 20px;
-    background: #333; color: #f7f7f7;
-    border: none; padding: 12px 20px;
-    border-radius: 50px; cursor: pointer;
-    z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    font-size: 16px;
-    transition: all 0.3s ease;
-}
-.toggle-dark:hover { background: #555; }
-@media (max-width:600px){
-    .toggle-dark { padding:12px; font-size:20px;}
-    .toggle-dark span { display:none; }
 }
