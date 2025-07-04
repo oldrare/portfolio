@@ -734,3 +734,48 @@ body.dark-mode .strategy-summary p,
 body.dark-mode .church-market p {
     color: #eee;
 }
+
+
+.portfolio-modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 9999;
+}
+.portfolio-modal.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+.modal-inner {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+.portfolio-modal.show .modal-inner {
+    transform: scale(1);
+}
+.close-modal-btn {
+    position: absolute;
+    top: 20px; right: 30px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+}
+@media (max-width: 480px) {
+    .modal-inner {
+        padding: 20px;
+    }
+}
