@@ -19,18 +19,18 @@ window.addEventListener('DOMContentLoaded', function() {
         if(wm) wm.classList.add('show');
     }, 300);
 
-    // 그다음 글자
+    // 워터마크 보이고 충분히 기다렸다가 (1.8초 이후)
     setTimeout(function(){
         document.querySelectorAll('.hero .reveal').forEach(function(el) {
             el.classList.add('show');
         });
-    }, 1200);
+    }, 1800);
 
-    // 이미지
+    // 이미지 더 천천히
     setTimeout(function(){
         const heroBg = document.querySelector('.hero-bg-img');
         if(heroBg) heroBg.classList.add('show');
-    }, 1800);
+    }, 3000);
 });
 
 window.addEventListener('DOMContentLoaded', function() {
