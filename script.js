@@ -54,6 +54,7 @@ window.addEventListener('DOMContentLoaded', function() {
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false, // 이거 추가!
             scales: {
                 y: {
                     beginAtZero: true,
