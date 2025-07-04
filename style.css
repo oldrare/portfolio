@@ -849,3 +849,34 @@ body.dark-mode .career-item {
     }
 }
 .strategy-text h2 {text-align: left;}
+
+.church-market {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    background: #fafafa;
+    padding: 60px 20px;
+}
+.church-market .graph-text {
+    flex: 1 1 300px;
+    max-width: 400px;
+    text-align: left;
+}
+.church-market .graph-chart {
+    flex: 1 1 400px;
+    max-width: 600px;
+}
+@media (max-width: 768px) {
+    .church-market {
+        flex-direction: column;
+        gap: 20px;
+        padding: 40px 10px;
+    }
+    .church-market .graph-text, 
+    .church-market .graph-chart {
+        max-width: 100%;
+        text-align: center;
+    }
+}
