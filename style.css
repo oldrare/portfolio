@@ -697,4 +697,17 @@ body.dark-mode .strategy-summary .highlight {
         font-size: 1em;
     }
 }
-
+.strategy-graph.flex-graph {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    background: #fafafa;
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+body.dark-mode .strategy-graph.flex-graph {
+    background: #111;
+}
