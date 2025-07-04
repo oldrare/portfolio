@@ -313,9 +313,9 @@ body.dark-mode .philosophy p {
 }
 
 .gallery {
-    padding: 40px 20px;
-    background: #fafafa;
     overflow: hidden;
+    padding: 40px 0;
+    background: #fafafa;
 }
 body.dark-mode .gallery {
     background: #222;
