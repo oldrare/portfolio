@@ -79,3 +79,18 @@ window.addEventListener('DOMContentLoaded', function() {
         if(heroBg) heroBg.classList.add('show');
     }, 1200); // 2000ms + 약간
 });
+
+
+    document.querySelectorAll('.open-modal-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-target');
+        document.querySelector(target).classList.add('show');
+        document.body.style.overflow = 'hidden'; // 스크롤 잠금
+    });
+});
+document.querySelectorAll('.close-modal-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        btn.closest('.portfolio-modal').classList.remove('show');
+        document.body.style.overflow = ''; // 스크롤 복구
+    });
+});
