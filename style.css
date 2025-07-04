@@ -519,7 +519,7 @@ body.dark-mode .church-market .graph-text p {
 @media (max-width: 768px) {
     .compare-graph .graph-text h2,
     .church-market .graph-text h2 {
-        text-align: center;
+        text-align: left;
     }
 }
 
