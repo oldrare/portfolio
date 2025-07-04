@@ -680,12 +680,15 @@ body.dark-mode .strategy-summary .highlight {
         font-size: 1.2em;
     }
     .philosophy h1 {
-        font-size: 2em;
+        font-size: 1.4em;
     }
     .philosophy p {
         font-size: 1.2em;
     }
     .graph-text h2 {
+        font-size: 1.5em;
+    }
+    .statement p.highlight-text{
         font-size: 1.5em;
     }
     .graph-text p {
