@@ -778,3 +778,69 @@ body.dark-mode .church-market p {
         padding: 20px;
     }
 }
+
+.career-section {
+    padding: 80px 20px;
+    background: #f7f7f7;
+}
+body.dark-mode .career-section {
+    background: #111;
+}
+.career-section .inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+.career-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    color: #222;
+}
+body.dark-mode .career-section h2 {
+    color: #eee;
+}
+.career-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.career-item {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    text-align: left;
+}
+body.dark-mode .career-item {
+    background: #222;
+    color: #ddd;
+}
+.career-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+.career-item .period {
+    font-size: 0.9em;
+    color: #777;
+}
+.career-item p {
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .career-section h2 {
+        font-size: 2em;
+    }
+    .career-item h3 {
+        font-size: 1.3em;
+    }
+}
+@media (max-width: 480px) {
+    .career-section h2 {
+        font-size: 1.8em;
+    }
+    .career-item h3 {
+        font-size: 1.1em;
+    }
+}
