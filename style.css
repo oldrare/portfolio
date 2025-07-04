@@ -659,3 +659,42 @@ body.dark-mode .strategy-summary p {
 body.dark-mode .strategy-summary .highlight {
     color: #ff7f7f;
 }
+
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    h2 {
+        font-size: 1.4em;
+    }
+    p {
+        font-size: 1em;
+    }
+
+    .statement h1 {
+        font-size: 2em;
+    }
+    .statement p {
+        font-size: 1.2em;
+    }
+    .philosophy h1 {
+        font-size: 2em;
+    }
+    .philosophy p {
+        font-size: 1.2em;
+    }
+    .graph-text h2 {
+        font-size: 1.5em;
+    }
+    .graph-text p {
+        font-size: 1em;
+    }
+    .strategy-summary h2 {
+        font-size: 1.6em;
+    }
+    .strategy-summary p {
+        font-size: 1em;
+    }
+}
+
