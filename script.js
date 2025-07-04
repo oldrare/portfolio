@@ -24,13 +24,13 @@ window.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.hero .reveal').forEach(function(el) {
             el.classList.add('show');
         });
-    }, 900);
+    }, 1200);
 
     // 이미지
     setTimeout(function(){
         const heroBg = document.querySelector('.hero-bg-img');
         if(heroBg) heroBg.classList.add('show');
-    }, 1500);
+    }, 1800);
 });
 
 window.addEventListener('DOMContentLoaded', function() {
