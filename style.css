@@ -154,10 +154,9 @@ body.dark-mode .card a {
     gap: 20px;
 }
 .skills .card {
-    flex: 1 1 calc(25% - 20px);
-    max-width: calc(25% - 20px);
+    flex: 1 1 calc(33% - 20px);
+    max-width: calc(33% - 20px);
 }
-
 /* 태블릿: 2개씩 */
 @media (max-width: 768px) {
     .skills .card {
