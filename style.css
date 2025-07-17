@@ -58,9 +58,9 @@ body.dark-mode .hero-watermark {
 }
 .hero .hero-bg-img {
     position: absolute;
-    top: 50%;
-
-    width: 300px;
+    width: 400px;
+    height: auto;
+    bottom: 0;
     height: auto;
     transform: translate(-50%, -50%);
     z-index: 0;
