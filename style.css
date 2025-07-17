@@ -67,7 +67,7 @@ body.dark-mode .hero-watermark {
     opacity: 0;
     transition: opacity 0.8s ease;
     border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+
 }
 .hero .hero-bg-img.show {
     opacity: 1;
